@@ -1,0 +1,45 @@
+body {
+  font-family: "Sofia", sans-serif;
+  font-size: 18px;
+  margin: auto;
+  margin-top:30px;
+  margin-bottom: 30px;
+  width: 50%;
+  border-style:dotted;
+  border-color:#90251A; 
+  border-radius:10px;
+  background: rgb(203,76,76);
+  background: linear-gradient(0deg, rgba(203,76,76,0.9962359943977591) 0%, rgba(254,207,106,1) 100%);
+  display: block; 
+}
+
+form {
+  font-family: "Sofia", sans-serif;
+  font-size: 20px;
+  color: black;
+  margin: 25px;
+}
+
+h2 {
+  font-family: "Sofia", sans-serif;
+  font-size: 32px;
+  padding: 15px; 
+  border-radius:15px
+  }
+
+input type
+
+input[type=submit] {
+  padding: 7px; 
+  border-radius:15px
+ 
+ }
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.textbox {
+  text-align: right;
+}

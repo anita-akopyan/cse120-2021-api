@@ -1,17 +1,149 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>AUA CSE120 - 2021</title>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<script type="text/javascript" src="js/main.js"></script>
-		<script
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Survey</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script
 			src="https://code.jquery.com/jquery-3.5.1.min.js"
 			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 			crossorigin="anonymous"></script>
-	</head>
+  </head>
+  <body>
+  <h1>Favorite Books</h1>
+  <img src="https://www.achievementfirst.org/wp-content/uploads/2020/07/heart-book-768x432.jpg">
+  <form>
+      <div class="section">
+        <div class="secsmall">
+      <label for="FullName">
+        Full Name 
+        <span style="color:red">
+          *
+        </span>
+      </label><br>
+      <input type="text" style="width:95%" id="fullname"  onblur="handleFullNameChange()" required><br>
+      </div>
+      </div>
 
-	<body onload="loadExistingData()">
-		<h1>API Testing Page</h1>
-		<div id="dataContainer">Loading...</div>
-	</body>
+       <div class="section">
+         <div class="secsmall">
+      <label for="Title">
+        Title 
+        <span style="color:red">
+          * 
+          </span>
+        </label><br>
+      <input type="text" style="width:95%" id="title" onblur="handleTitleChange()" required><br>
+      </div>
+      </div>
+
+       <div class="section">
+         <div class="secsmall">
+      <label for="Author">
+        Author
+        <span style="color:red">
+          *
+        </span>
+      </label><br>
+      <input type="text" style="width:95%" id="author" onblur="handleAuthorChange()" required><br>
+      </div>
+      </div>
+
+       <div class="section">
+         <div class="secsmall">
+      <label for="Color">Color</label><br>
+      <input type="text" style="width:95%" id="color" onblur="handleColorChange()"> <br>
+      </div>
+      </div>
+
+       <div class="section">
+         <div class="secsmall" >
+      <label for="Cover">Cover Type</label><br>
+
+      <select id="covertype" onchange="handleCoverTypeChange()">
+          <option value="hardcover"> Hardcover </option>
+          <option value="paperback"> Paperback </option>
+          <option value="other"> Other </option> 
+
+        </select> 
+      </div>
+      </div>
+
+      <div class="section">
+        <div class="secsmall">
+      <label for="Numofpages">Number of pages</label><br>
+      <input type="text" style="width:95%" id="numofpages" onblur="handleNumofpagesChange()"><br>
+      </div>
+      </div>
+
+      <div class="section">
+        <div class="secsmall">
+      <label for="Language">Language</label><br>
+      <input type="radio" name="Language" value="English" id="English"; onchange="handleLanguageChange(event)">English<br>
+
+      <input type="radio" name="Language" value="French" id="French"; onchange="handleLanguageChange(event)">French<br>
+
+      <input type="radio" name="Language" value="Chinese" id="Chinese"; onchange="handleLanguageChange(event)">Chinese<br>
+
+      <input type="radio" name="Language" value="Armenian" id="Armenian"; onchange="handleLanguageChange(event)">Armenian<br>
+
+      <input type="radio" name="Language" value="German" id="German"; onchange="handleLanguageChange(event)">German<br>
+
+      <input type="radio" name="Language" value="Other" id="Other"; onchange="handleLanguageChange(event)">Other
+      <input type="text" id="Language" placeholder="type here" onblur="handleLanguageChange()"> <br> <br>
+      </div>
+      </div>
+
+     <div class="section">
+       <div class="secsmall">
+     <label for="Publisher">
+       Publisher
+       <span style="color:red">
+          *
+        </span>
+    </label><br>
+     <input type="text" style="width:95%" id="publisher" onblur="handlePublisherChange()" required><br>
+     </div>
+     </div>
+
+     <div class="section">
+       <div class="secsmall">
+     <label for="PublishDate">
+       Publishing Date
+       <span style="color:red">
+          *
+        </span>
+    </label><br>
+     <input type="date" name="date" style="width:95%" id="publishdate" onblur="handlePublishDateChange()"required><br>
+     </div>
+     </div>
+
+     <div class="section">
+       <div class="secsmall">
+     <label for="Genre">
+       Genre   
+    </label>
+    <label style="color:black; font-size:13px; font-weight:normal"><br> choose as many as apply</label><br>
+
+          <input type="checkbox" id ="fiction" name="genre" value="ficton"
+          onclick="handleGenreChange(event)">
+          <label for="fiction">fiction</label> <br>
+          <input type="checkbox" id="non-fiction" name="Genre" value="non-fiction"
+          onclick="handleGenreChange(event)">
+          <label for="drama">non-fiction</label> <br>
+          <input type="checkbox" id = "drama" name="Genre" value="drama"
+          onclick="handleGenreChange(event)"> 
+          <label for="drama">drama</label> 
+          <input type="checkbox" id = "science-fiction" name="Genre" value="science-fiction"
+          onclick="handleGenreChange(event)"> 
+          <label for="science-fiction">science-fiction</label> 
+        </div>
+
+      <input type="submit" value="Submit" style="margin-left:45%" onclick="showSurveyResult(event)" >
+
+  </form>
+
+    <script src="script.js"></script>
+  </body>
 </html>

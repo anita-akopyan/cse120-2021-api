@@ -1,0 +1,35 @@
+.section {
+  max-width: 550px;
+  background-color: lightblue;
+  margin-bottom: 30px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 20px;
+}
+.secsmall{
+  margin-left: 15px;
+  padding: 15px;
+  font-size: 10px;
+}
+h1{
+  text-align: center;
+}
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 30px;
+  max-width: 550px;
+}
+
+label{
+  color: rgb(32, 94, 32);
+  font-weight: bold;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+h1{
+  font-family: sans-serif
+}
