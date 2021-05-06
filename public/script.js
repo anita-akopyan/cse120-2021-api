@@ -100,19 +100,16 @@ function loadEditBookItem() {
   console.log(editItem);
   document.getElementById("_id").value = editItem["_id"];
   
-  document.getElementById("fname").value = editItem["fullName"];   
-  document.getElementById("title").value = editItem["title"];
-  document.getElementById("author").value = editItem["author"];   
-  document.getElementById("publisher").value = editItem["publisher"];   
-  document.getElementById("publishingdate").value = editItem["publishingDate"]; 
-  /*
-  document.getElementById("language").value = editItem["language"]; 
-  document.getElementById("customLanguage").value = editItem["customLanguage"]; 
-  document.getElementById("type-of-cover").value = editItem["coverType"]; */
-  document.getElementById("num-of-pgs").value = editItem["noOfPgs"];
-  document.getElementById("genre").value = editItem["genre"]; 
-  document.getElementById("reason").value = editItem["reason"]; 
-    
+  document.getElementById("fullname").value = editItem["FullName"];   
+  document.getElementById("title").value = editItem["Title"];
+  document.getElementById("author").value = editItem["Author"];   
+  document.getElementById("color").value = editItem["Color"];   
+  document.getElementById("covertype").value = editItem["CoverType"]; 
+  document.getElementById("numofpages").value = editItem["Numofpages"]; 
+  document.getElementById("Language").value = editItem["Language"]; 
+  document.getElementById("publisher").value = editItem["Publisher"]; 
+  document.getElementById("publishdate").value = editItem["PublishDate"];
+  document.getElementById("genre").value = editItem["Genre"];     
     
 }
 
@@ -189,7 +186,37 @@ function saveData() {
         }
     });
 }
-
+function updateData(e) {
+  e.preventDefault();
+  var updatedBook = {};
+  updatedBook.id = document.getElementById("_id").value;
+  updatedBook.FullName = document.getElementById("fullname").value;
+  updatedBook.Title = document.getElementById("title").value;
+  updatedBook.Author = document.getElementById("author").value;  
+  updatedBook.Color = document.getElementById("color").value;
+  updatedBook.CoverType = document.getElementById("covertype").value;
+  updatedBook.Numofpages = document.getElementById("numofpages").value;
+  updatedBook.Language = document.getElementById("Language").value;
+  updatedBook.Publisher = document.getElementById("publisher").value;
+  updatedBook.PublishDate = document.getElementById("publishdate").value;
+  updatedBook.Genre = document.getElementById("genre").value;
+      $.ajax({
+      type: 'POST',
+      url: "https://cse-120-2021-api-anita.herokuapp.com/data/update",
+      data: updatedBook,
+      cache: false,
+      dataType : 'json',
+      success: function (data) {
+        console.log("success");
+      },
+      error: function (xhr) {
+        console.error("Error in post", xhr);
+      },
+      complete: function () {
+        console.log("Complete");  
+      }
+    });
+}
 
 //new
 function loadExistingData() {
