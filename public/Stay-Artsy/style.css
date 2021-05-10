@@ -1,0 +1,28 @@
+.section {
+  max-width: 550px;
+  background-color:rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 20px;
+}
+.secsmall{
+  margin-left: 15px;
+  padding: 15px;
+  color: white;
+}
+h1{
+  text-align: center;
+  
+}
+body{
+  background-image: url(https://static01.nyt.com/images/2019/05/15/arts/15auction-print/merlin_154513575_9e3a1bf0-83c5-4d8e-be8e-c95aa76513fe-superJumbo.jpg)
+}
+
+
+label{
+  color: white;
+  font-size: 18px;
+  font-family: cursive;
+}
+
