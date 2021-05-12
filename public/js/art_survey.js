@@ -1,4 +1,6 @@
 var Artsy = {
+  "owner" : "Anita",
+  "project" : "Stay Artsy",
   "Name" :  "",
   "Study" : "",
   "Where" : "",

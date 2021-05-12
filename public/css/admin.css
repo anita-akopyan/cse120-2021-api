@@ -2,31 +2,48 @@ admin.css
 body {
   font-family: "Playfair Display", sans-serif;
   font-size: 18px;
-  background: rgb(203,76,76);
-  background: linear-gradient(0deg, #cb4c4c 0%, #fecf6a 100%);
+  background: #c4c4c4;
+}
+
+#artsDataContainer, #bookDataContainer, #otherDataContainer {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 div.item {
-	min-width: 200px;
-	width: 20%;
-	height: 700px;
-	background: linear-gradient(0deg, #cb4c4cfe 0%, rgba(254,207,106,1) 100%);
-	float: left;
-	margin: 10px;
 	padding: 10px;
-	position: relative;
+    margin: 10px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 200px;
+    border: 4px solid #966868;
+    background: #cebbc7;
+    border-radius: 8px;
 }
 
+button {
+	color: #fff;
+    background: rgb(203 47 47);
+    padding: 8px 12px;
+    margin: 4px 8px 0 0;
+    border: 2px solid #ffffffd9;
+    border-radius: 6px;
+    font-size: 15px;
+}
 
-div.item button {
+button.editButton {
+	background: #074e9a;
+}
+
+/*div.item button {
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
-}
+}*/
 
-div.item button.edit {
+/*div.item button.edit {
 	right: 70px;
-}
+}*/
 
 span.item {
 	line-height: 16px;
@@ -43,7 +60,7 @@ span.undefined {
 
 //new
 
-#artsDataContainer div.item {
+/*#artsDataContainer div.item {
   background: linear-gradient(0deg, rgba(240,148,148,1) 0%, rgba(254,207,106,1) 67%);
  	width: 100%;
 	height: 30px;
@@ -56,7 +73,7 @@ span.undefined {
 }
 
 #bookDataContainer div.item {
-  background: rgb(254,207,106);
+  background: rgb(221,160,221);
   background: radial-gradient(circle, rgba(254,207,106,1) 0%, rgba(203,47,47,1) 100%);
 }
 
@@ -85,4 +102,4 @@ span.item b {
 
 span.undefined {
 	color: red;
-}
+}*/
