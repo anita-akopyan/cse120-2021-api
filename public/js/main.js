@@ -74,42 +74,22 @@ function deleteData(id) {
   });
 }
 
-function saveData() {
-  var tmp = {
-    "test": "Data"
-  }
-
-  $.ajax({
-    type: 'POST',
-    url: "https://cse-120-2021-api-anita.herokuapp.com/data",
-    data: tmp,
-    cache: false,
-    dataType: 'json',
-    success: function (data) {
-      console.log("success");
-    },
-    error: function (xhr) {
-      console.error("Error in post", xhr);
-    },
-    complete: function () {
-      console.log("Complete");
-    }
-  });
-}
 function updateData(e) {
   e.preventDefault();
   const updatedBook = {
     _id: document.getElementById("_id").value,
-    FullName: document.getElementById("fullname").value,
-    Title: document.getElementById("title").value,
-    Author: document.getElementById("author").value,
-    Color: document.getElementById("color").value,
-    CoverType: document.getElementById("covertype").value,
-    Numofpages: document.getElementById("numofpages").value,
-    Language: document.getElementById("language").value,
-    Publisher: document.getElementById("publisher").value,
-    PublishDate: document.getElementById("publishdate").value,
-    Genre: document.getElementById("genre").value
+    value: {
+        FullName: document.getElementById("fullname").value,
+        Title: document.getElementById("title").value,
+        Author: document.getElementById("author").value,
+        Color: document.getElementById("color").value,
+        CoverType: document.getElementById("covertype").value,
+        Numofpages: document.getElementById("numofpages").value,
+        Language: document.getElementById("language").value,
+        Publisher: document.getElementById("publisher").value,
+        PublishDate: document.getElementById("publishdate").value,
+        Genre: document.getElementById("genre").value
+    }
   };
   $.ajax({
     type: 'POST',

@@ -7,7 +7,7 @@ const { MongoClient } = require("mongodb");
 const ObjectId = require('mongodb').ObjectId; 
 
 const uri =
- "mongodb+srv://anita_akopyan:samanthaablessing7@cluster0.keijd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+ "mongodb+srv://anita_akopyan:Anita2000!@cluster0.keijd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri);
 
@@ -66,9 +66,10 @@ app.post('/data', function (req, res) {
 app.post('/data/update', function (req, res) {
   client.connect()
   .then(client => {
-    let id = req.body._id;
+    const id = req.body._id;
+    const updatedData = req.body.value;
     const query = { "_id": ObjectId(id)};
-    client.db('cse120-2021-db').collection('books').update(query, {$set: req.body})
+    client.db('cse120-2021-db').collection('books').update(query, {$set: updatedData})
       .then(result => {
         console.log(result)
         res.send({"message":"Updated"});
