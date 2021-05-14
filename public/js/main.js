@@ -77,7 +77,7 @@ function deleteData(id) {
 function updateData(e) {
   e.preventDefault();
   const updatedBook = {
-    _id: document.getElementById("_id").value,
+    id: document.getElementById("_id").value,
     value: {
         FullName: document.getElementById("fullname").value,
         Title: document.getElementById("title").value,
