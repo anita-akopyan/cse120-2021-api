@@ -63,6 +63,22 @@ app.post('/data', function (req, res) {
   .catch(console.error)
 })
 
+app.post('/data/update', function (req, res) {
+  client.connect()
+  .then(client => {
+    let id = req.body._id;
+    const query = { "_id": ObjectId(id)};
+    client.db('cse120-2021-db').collection('books').update(query, {$set: req.body})
+      .then(result => {
+        console.log(result)
+        res.send({"message":"Updated"});
+      })
+      .catch(error => console.error(error))
+  })
+  .catch(console.error)
+})
+
+
 app.post('/data/delete', function (req, res) {
   client.connect()
   .then(client => {

@@ -1,215 +1,96 @@
 var Artsy = {
-  "owner" : "Anita",
-  "project" : "Stay Artsy",
-  "Name" :  "",
-  "Study" : "",
-  "Where" : "",
-  "Painter" : "",
-  "ArtStyle" : "",
-  "PaintStyle" : [],
-  "HowOft" : "",
-  "Gallery" : "",
-  "House" : "",
+  "owner": "Anita",
+  "project": "Stay Artsy",
+  "Name": "",
+  "Study": "",
+  "Where": "",
+  "Painter": "",
+  "ArtStyle": "",
+  "PaintStyle": [],
+  "HowOft": "",
+  "Gallery": "",
+  "House": "",
 }
 
 
-function handleNameChange() {
-  Artsy.Name = document.getElementById ("name").value;
+function handleChange(e) {
+  if (e.target.name === 'PaintStyle') {
+    if (e.target.checked && !Artsy[e.target.name].includes(e.target.value)) {
+      Artsy[e.target.name].push(e.target.value);
+    } else if (!e.target.checked && Artsy[e.target.name].includes(e.target.value)) {
+      Artsy[e.target.name].splice(Artsy[e.target.name].indexOf(e.target.value), 1)
+    }
+  } else {
+    Artsy[e.target.name] = e.target.value;
+  }
 }
 
 function handleStudyChange() {
-  Artsy.Study = document.getElementById ("study").value;
+  Artsy.Study = document.getElementById("study").value;
 }
 
 function handleWhereChange() {
-  Artsy.Where = document.getElementById ("where").value;
+  Artsy.Where = document.getElementById("where").value;
 }
 
 function handlePainterChange() {
-  Artsy.Painter = document.getElementById ("painter").value;
+  Artsy.Painter = document.getElementById("painter").value;
 }
 
 
 function handleArtStyleChange() {
- var artValue = document.getElementsByName
- ("ArtStyle")
- 
- for(i=0; i < artValue.length; i++){
-    if(artValue[i].checked)
-        Artsy.ArtStyle = artValue[i].value
-  }
-   }
+  var artValue = document.getElementsByName
+    ("ArtStyle")
 
-  
+  for (i = 0; i < artValue.length; i++) {
+    if (artValue[i].checked)
+      Artsy.ArtStyle = artValue[i].value
+  }
+}
+
+
 function handlePaintStyleChange(e) {
   var value = e.target.id;
-  if (e.target.value == "on") {
+  if (e.target.value === "on") {
     Artsy.PaintStyle = Artsy.PaintStyle + "," + value;
   }
-} 
+}
 
 function handleHowOftChange() {
   Artsy.HowOft = document.getElementById("howoft").value;
 }
 
 function handleGalleryChange() {
-  Artsy.Gallery = document.getElementById ("gallery").value;
+  Artsy.Gallery = document.getElementById("gallery").value;
 }
 
 
 
 function handleHouseChange() {
-  Artsy.House = document.getElementById ("house").value;
+  Artsy.House = document.getElementById("house").value;
 }
 
 
 
-function showSurveyResult(e) {
+function saveData(e) {
+  console.log(Artsy);
   e.preventDefault();
-  console.log("The current value is", Artsy)
-  
   $.ajax({
     type: 'POST',
-    url: "https://cse120-2021-api.herokuapp.com/data",
+    url: "https://cse-120-2021-api-anita.herokuapp.com/data",
     data: Artsy,
     cache: false,
-    dataType : 'json',
+    dataType: 'json',
     success: function (data) {
+      console.log(data)
+      // location.href = localStorage.getItem('prev-page-url');
       console.log("success");
     },
     error: function (xhr) {
       console.error("Error in post", xhr);
     },
     complete: function () {
-      console.log("Complete");  
+      console.log("Complete");
     }
   });
-}
-
-
-function displayData(existingData) {
-  document.getElementById("existingData").innerHTML = "<ul>";
-  for (var i = 0; i < existingData.length; i++) {
-    currentArtsy = existingData[i];
-    document.getElementById("existingData").innerHTML += "<li><i>" + Artsy.Name + "</li> : <b>" + Artsy.Study + "</b></li>";
-  }
-  document.getElementById("existingData").innerHTML += "</ul>"
-}
-    
-function deleteData(id) {
-
-    var r = confirm("Are you sure you want to delete the item with the following ID? " + id);
-    if (r == true) {
-      
-    } else {
-      return;
-    }
-
-    var tmp = {
-        "id": id
-    }
-
-    $.ajax({
-        type: 'POST',
-        url: "https://cse120-2021-api.herokuapp.com/data/delete",
-        data: tmp,
-        cache: false,
-        dataType : 'json',
-        success: function (data) {
-            console.log("success");
-            document.getElementById("div" + id).style.display = "none";
-        },
-        error: function (xhr) {
-            console.error("Error in post", xhr);
-        },
-        complete: function () {
-            console.log("Complete");  
-        }
-    });
-}
-
-function saveData() {
-	var tmp = {
-		"test": "Data"
-	}
-
-    $.ajax({
-      type: 'POST',
-      url: "https://cse120-2021-api.herokuapp.com/data",
-      data: tmp,
-      cache: false,
-      dataType : 'json',
-      success: function (data) {
-      console.log("success");
-        },
-      error: function (xhr) {
-      console.error("Error in post", xhr);
-        },
-      complete: function () {
-      console.log("Complete");  
-        }
-    });
-}
-
-function loadExistingData() {
-    $.ajax({
-        type : "GET",
-        url : "https://cse120-2021-api.herokuapp.com/data",
-        dataType : "json",
-        success : function(data) {
-        	console.log("success", data);
-            displayData(data.data);
-        },
-        error : function(data) {
-            console.log("Error")
-        }
-    });
-}
-
-function displayData(data) {
-    document.getElementById("dataContainer").innerHTML = "";
-    data.forEach(elem => {
-
-    var item = document.createElement("div");
-        item.id = "div" + elem["_id"];
-        item.className = "item";
-    if (Object.keys(elem).length == 1) {
-    var span = document.createElement("span");
-        span.innerHTML = "<i>Empty Element with autogenerated ID: </i>" + elem["_id"];
-        item.appendChild(span);
-        }
-    Object.keys(elem).forEach(key => {
-      if (key != "_id") {
-      var span = document.createElement("span");
-
-      var b = document.createElement("b");
-          b.innerHTML = key + ": ";
-          span.appendChild(b);
-                
-          span.className = "item";
-      if (elem[key]) {
-          span.innerHTML += elem[key];
-      } else {
-        
-      var span1 = document.createElement("span");
-          span1.className = "undefined";
-          span1.innerHTML = "N/A";
-          span.appendChild(span1)
-                }
-          item.appendChild(span);
-
-      var br = document.createElement("br");
-          item.appendChild(br);
-            }
-        })
-      var button = document.createElement("button");
-        button.innerHTML = "Delete";
-        button.id = elem["_id"];
-        button.addEventListener("click", function(e){
-          deleteData(e.target.id);
-        }, false);
-        item.appendChild(button);
-        document.getElementById("dataContainer").appendChild(item);
-    })
-
 }

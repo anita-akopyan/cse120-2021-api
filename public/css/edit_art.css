@@ -1,0 +1,20 @@
+body {
+font-family: cursive;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 50%;
+    border-style: solid;
+    border-color: cornsilk;
+    border-radius: 10px;
+    background: lightpink;
+    display: block;
+    padding: 15px;
+}
+
+button {
+  padding: 7px; 
+  border-radius:15px;
+  margin-left: 45%;
+}
