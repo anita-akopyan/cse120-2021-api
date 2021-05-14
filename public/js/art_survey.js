@@ -25,51 +25,6 @@ function handleChange(e) {
   }
 }
 
-function handleStudyChange() {
-  Artsy.Study = document.getElementById("study").value;
-}
-
-function handleWhereChange() {
-  Artsy.Where = document.getElementById("where").value;
-}
-
-function handlePainterChange() {
-  Artsy.Painter = document.getElementById("painter").value;
-}
-
-
-function handleArtStyleChange() {
-  var artValue = document.getElementsByName
-    ("ArtStyle")
-
-  for (i = 0; i < artValue.length; i++) {
-    if (artValue[i].checked)
-      Artsy.ArtStyle = artValue[i].value
-  }
-}
-
-
-function handlePaintStyleChange(e) {
-  var value = e.target.id;
-  if (e.target.value === "on") {
-    Artsy.PaintStyle = Artsy.PaintStyle + "," + value;
-  }
-}
-
-function handleHowOftChange() {
-  Artsy.HowOft = document.getElementById("howoft").value;
-}
-
-function handleGalleryChange() {
-  Artsy.Gallery = document.getElementById("gallery").value;
-}
-
-
-
-function handleHouseChange() {
-  Artsy.House = document.getElementById("house").value;
-}
-
 
 
 function saveData(e) {

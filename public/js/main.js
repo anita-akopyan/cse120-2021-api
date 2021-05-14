@@ -16,6 +16,19 @@ function loadEditBookItem() {
   document.getElementById("genre").value = editItem["Genre"];
 }
 
+function loadEditHobbyItem() {
+  editItem = JSON.parse(localStorage.getItem('editItem'));
+  document.getElementById("_id").value = editItem["_id"];
+  document.getElementById("name").value = editItem["Name"];
+  document.getElementById("study").value = editItem["Study"];
+  document.getElementById("where").value = editItem["Where"];
+  document.getElementById("painter").value = editItem["Painter"];
+  document.getElementById("artstyle").value = editItem["ArtStyle"];
+  document.getElementById("paintstyle").value = editItem["PaintStyle"];
+  document.getElementById("howoft").value = editItem["HowOft"];
+  document.getElementById("gallery").value = editItem["Gallery"];
+  document.getElementById("house").value = editItem["House"];
+}
 
 function editData(id) {
   const tmp = id.split("edit_");
@@ -102,6 +115,36 @@ function updateData(e) {
     type: 'POST',
     url: "https://cse-120-2021-api-anita.herokuapp.com/data/update",
     data: updatedBook,
+    cache: false,
+    dataType: 'json',
+    success: function (data) {
+      location.href = localStorage.getItem('prev-page-url');
+      console.log("success");
+    },
+    error: function (xhr) {
+      console.error("Error in post", xhr);
+    }
+  });
+}
+
+function updateDataHobby(e) {
+  e.preventDefault();
+  const updatedHobby = {
+    _id: document.getElementById("_id").value,
+    FullName: document.getElementById("name").value,
+    Title: document.getElementById("study").value,
+    Author: document.getElementById("where").value,
+    Color: document.getElementById("painter").value,
+    CoverType: document.getElementById("artstyle").value,
+    Numofpages: document.getElementById("paintstyle").value,
+    Language: document.getElementById("howoft").value,
+    Publisher: document.getElementById("gallery").value,
+    PublishDate: document.getElementById("house").value,
+  };
+  $.ajax({
+    type: 'POST',
+    url: "https://cse-120-2021-api-anita.herokuapp.com/data/update",
+    data: updatedHobby,
     cache: false,
     dataType: 'json',
     success: function (data) {
