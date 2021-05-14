@@ -65,6 +65,7 @@ function handleGenreChange(e) {
   } else if (!e.target.checked && FavBook.Genre.includes(e.target.value)) {
     FavBook.Genre.splice(FavBook.Genre.indexOf(e.target.value), 1)
   }
+}
   
 function saveData(e) {
   e.preventDefault();

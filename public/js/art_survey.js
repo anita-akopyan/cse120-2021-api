@@ -28,8 +28,8 @@ function handleChange(e) {
 
 
 function saveData(e) {
-  console.log(Artsy);
   e.preventDefault();
+    console.log("The current value is", Artsy);
   $.ajax({
     type: 'POST',
     url: "https://cse-120-2021-api-anita.herokuapp.com/data",
@@ -37,8 +37,7 @@ function saveData(e) {
     cache: false,
     dataType: 'json',
     success: function (data) {
-      console.log(data)
-      // location.href = localStorage.getItem('prev-page-url');
+      location.href = localStorage.getItem('prev-page-url');
       console.log("success");
     },
     error: function (xhr) {
