@@ -110,16 +110,18 @@ function updateData(e) {
 function updateDataHobby(e) {
   e.preventDefault();
   const updatedHobby = {
-    _id: document.getElementById("_id").value,
-    FullName: document.getElementById("name").value,
-    Title: document.getElementById("study").value,
-    Author: document.getElementById("where").value,
-    Color: document.getElementById("painter").value,
-    CoverType: document.getElementById("artstyle").value,
-    Numofpages: document.getElementById("paintstyle").value,
-    Language: document.getElementById("howoft").value,
-    Publisher: document.getElementById("gallery").value,
-    PublishDate: document.getElementById("house").value,
+    id: document.getElementById("_id").value,
+    value: {
+        Name: document.getElementById("name").value,
+        Study: document.getElementById("study").value,
+        Where: document.getElementById("where").value,
+        Painter: document.getElementById("painter").value,
+        ArtStyle: document.getElementById("artstyle").value,
+        PaintStyle: document.getElementById("paintstyle").value,
+        HowOft: document.getElementById("howoft").value,
+        Gallery: document.getElementById("gallery").value,
+        House: document.getElementById("house").value,
+    }
   };
   $.ajax({
     type: 'POST',
@@ -137,7 +139,6 @@ function updateDataHobby(e) {
   });
 }
 
-//new
 function loadExistingData() {
   const myArtistHobbyData = [];
   const favBookData = [];

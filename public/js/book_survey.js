@@ -77,7 +77,6 @@ function saveData(e) {
     dataType: 'json',
     success: function (data) {
       location.href = localStorage.getItem('prev-page-url');
-      // displayData(data);
       console.log("success");
     },
     error: function (xhr) {

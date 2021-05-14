@@ -19,11 +19,14 @@ button {
   margin-left: 45%;
 }
 
-img {
-  width: 100%;
-  height: auto;
+label {
+  line-height: 40px;
 }
 
-.textbox {
-  text-align: right;
+input {
+  padding: 8px;
+  border: 2px solid cornsilk;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  width: calc(100% - 16px);
 }
